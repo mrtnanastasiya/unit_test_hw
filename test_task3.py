@@ -19,12 +19,44 @@ class Task3TestCase(unittest.TestCase):
             '3': []
         }
 
-        numbers["name"] = get_name(doc_number)
-
-        for doc_number in documents:
-            self.assertEqual(doc_number,
-                            '10006',
+        result_name_1 = (get_name("10006"))
+        self.assertEqual(result_name_1 ,
+                            'Аристарх Павлов',
                             'Документ не найден')
+
+        result_directory_1 = (get_directory("11-2"))
+        self.assertEqual(result_directory_1,
+                         '1',
+                         'Полки с таким документом не найдено')
+
+        result_name_2 = (get_name("101"))
+        self.assertIn(result_name_2,
+                         documents,
+                         'Документ не найден')
+
+        new_document = add('international passport', '311 020203', 'Александр Пушкин', 3)
+        self.assertIn(new_document,
+                         documents,
+                         'Документ не найден')
+
+        result_directory_2 = (get_directory("311 020203"))
+        self.assertIn(result_directory_2,
+                         documents,
+                         'Полки с таким документом не найдено')
+
+        result_name_3 = (get_name("311 020203"))
+        self.assertIn(result_name_3,
+                         documents,
+                         'Документ не найден')
+
+        result_directory_3 = (get_directory("311 020204"))
+        self.assertIn(result_directory_3,
+                      documents,
+                      'Полки с таким документом не найдено')
+
+
+
+
 
 
 
