@@ -7,8 +7,10 @@ from task3 import get_name, get_directory, add, documents, directories
 class Task3TestCase(unittest.TestCase):
 
     def setUp(self):
-        self.documents = documents
-        self.directories = directories
+        add('passport', '2207 876234', 'Василий Гупкин', 1)
+        add('invoice', '11-2', 'Геннадий Покемонов', 1)
+        add('insurance', '10006', 'Аристарх Павлов', 2)
+        add('driver license', '5455 028765', 'Василий Иванов', 1)
 
     def test_get_name(self):
 
