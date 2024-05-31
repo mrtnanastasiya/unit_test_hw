@@ -15,22 +15,22 @@ def get_name(doc_number):
     for numbers in documents:
         if doc_number in numbers["number"]:
             return numbers["name"]
-    return "Документ не найден"
+    return None
 
 def get_directory(doc_number):
     for shelf_numbers in directories.keys():
         num = directories[shelf_numbers]
         if doc_number in num:
             return shelf_numbers
-    return "Полки с таким документом не найдено"
+    return None
 
 def add(document_type, number, name, shelf_number):
     new_dict={"type": document_type, "number": number, "name": name}
     documents.append(new_dict)
     if shelf_number in directories.keys():
-        directories[shelf_number] = [number]
+        directories[shelf_number].append(number)
     else:
-        directories.update({shelf_number: [number]})
+        directories[shelf_number] = [number]
     return
 
 if __name__ == '__main__':
