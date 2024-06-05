@@ -1,7 +1,7 @@
 # Юнит-тест для ДЗ "сисадмин".
 
 import unittest
-from task1 import solve
+from code.task1 import solve
 
 class Task1TestCase(unittest.TestCase):
     def test_solve(self):
@@ -16,7 +16,6 @@ class Task1TestCase(unittest.TestCase):
         # count - сколько компьютеров он починит
         ssds, count = solve(models, available, manufacturers)
 
-        # self.assertIn(a,b) - проверяет, что элемент a находится в коллекции (здесь список) b
         # Проверяем, что все нужные диски присутсвуют в списке покупок
         for disk_name in ['480 ГБ 2.5" SATA накопитель WD Green', '500 ГБ 2.5" SATA накопитель Samsung 870 EVO']:
             self.assertIn(disk_name,
@@ -29,9 +28,3 @@ class Task1TestCase(unittest.TestCase):
                          2,
                          'Неверное кол-во компьютеров')
 
-        # Здесь мы проверили правильность списка покупок от сисадмина
-        # Проверка на равенство списков чувствительна к порядку элементов
-        # поэтому self.Equal не самое идеальное решение
-        # поэтому мы сначала проверили, что нужные диски входят в список покупок,
-        # а затем проверили кол-во дисков в списке покупок, чтобы
-        # убедиться, что в списке нет лишних дисков!!

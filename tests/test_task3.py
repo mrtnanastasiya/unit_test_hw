@@ -1,7 +1,7 @@
 # Юнит-тест для ДЗ "Секретарь".
 
 import unittest
-from task3 import get_name, get_directory, add, documents, directories
+from code.task3 import get_name, get_directory, add
 
 
 class Task3TestCase(unittest.TestCase):
@@ -38,14 +38,14 @@ class Task3TestCase(unittest.TestCase):
 
         shelf_none = get_directory("311 020203")
         self.assertIsNone(shelf_none,
-                          'Такой полки нет')
+                          'Почему-то такая полка уже есть')
 
         add('international passport', '311 020203', 'Александр Пушкин', 3)
 
         shelf_true = get_directory("311 020203")
         self.assertEqual(shelf_true,
                          3,
-                         'Такой полки нет')
+                         'Полка с документом Пушкина не появилась')
 
 
         result_name_4 = get_name("311 020203")

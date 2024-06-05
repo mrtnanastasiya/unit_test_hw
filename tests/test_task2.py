@@ -1,7 +1,7 @@
 # Юнит-тест для ДЗ "кулинарная книга".
 
 import unittest
-from task2 import solve
+from code.task2 import solve
 
 class Task2TestCase(unittest.TestCase):
     def test_solve(self):
@@ -35,12 +35,6 @@ class Task2TestCase(unittest.TestCase):
         result = solve(my_cook_book, person)
         # print(result)
         # print(answer)
-
-        # нужно проверить, что result (ответ программы) эквивалентен answer (правильный ответ)
-        # но с учетом, что порядок в списке покупок может меняться
-        # например, в нашем ответе сначала идет список рецеп шарлотки, потом рецепт сырников
-        # а программа может ответить сначала списков из сырников, потом шарлотки
-
 
         for dish in answer:
             self.assertIn(dish,
